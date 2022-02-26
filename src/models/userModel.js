@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema( {
+const booksSchema = new mongoose.Schema( {
    
    bookName:String,
    authorName:String,
@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema( {
    year:Number
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema) //users
+module.exports = mongoose.model('User', booksSchema) //users
 
 
 
