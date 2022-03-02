@@ -32,7 +32,7 @@ const upadatedBookPrice = async function (req, res) {
 
     res.send({msg:authorN, updatedPrice})
 
-}
+} 
 
 const authorsName = async function (req,res) {
     const booksId= await bookModel.find({price: {$gte:50, $lte:100}}).select({author_id:1, _id:0})

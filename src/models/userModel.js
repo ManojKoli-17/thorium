@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema( {
     gender: {
         type: String,
         enum: ["male", "female", "LGBTQ"] //"falana" will give an error
+        
     },
     age: Number,
     // isIndian: Boolean,
