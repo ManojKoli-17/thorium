@@ -31,7 +31,28 @@ const getBooks= async function (req, res) {
     res.send({data: books})
 }
 
+// 5th Put API
+
+// const updatedBook= async function (req, res) {
+    
+//     let abc=await publisherModel.find({$or:[{name:{$eq:"Penguin"}},{name:{$eq:"HarperCollins"}}]}).select("_id").updateMany({isHardCover:true})
+//     if(bookModel.author==abc[0]._id)
+//     res.send("hi")
+    
+  
+// }
+const updatedPrice= async function (req, res) {
+
+    await bookModel.find({ratings:{$gte:3.5}}).updateMany({$inc:{price:10}})
+
+    res.send("Price successfully Updated")
+}
+
+
+
 
 module.exports.createBook= createBook
 module.exports.getBooks= getBooks
+// module.exports.updatedBook= updatedBook
+module.exports.updatedPrice= updatedPrice
 
