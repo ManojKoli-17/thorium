@@ -1,15 +1,18 @@
-const UserModel= require("../models/userModel")
-
-const createUser= async function (req, res) {
-    let data= req.body
-    let savedData= await UserModel.create(data)
-    res.send({msg: savedData})
+const moment =require('moment')
+const createUser= function (req, res,next){
+    const ipAdd=req.ip
+    
+    const dateFormat = "YYYY-MM-DD HH:mm:ss"
+    const newDate = new Date()
+    date = moment(newDate).format(dateFormat);
+    console.log("After Middleware hit",date,"\n",ipAdd)
+    res.send("After Middleware hit")
+    next()
 }
 
-const getUsersData= async function (req, res) {
-    let allUsers= await UserModel.find()
-    res.send({msg: allUsers})
+const basicAPi= function (req, res){
+    res.send("basicAPi is hit")
 }
 
-module.exports.createUser= createUser
-module.exports.getUsersData= getUsersData
+module.exports.createUser=createUser
+module.exports.basicAPi=basicAPi
