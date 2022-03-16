@@ -40,6 +40,7 @@ const mid2 = async function (req, res, next) {
       .status(401)
       .send({ status: false, msg: "token must be present" });
     }
+    
 
 
     const id = req.params.blogId;
